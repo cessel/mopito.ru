@@ -98,6 +98,7 @@ $db_host = 'localhost';
 $db_user = 'cessel_alco';
 $db_password = 'Hs7DMc&V';
 $database = 'cessel_alco';
+
 define('DB_HOST',$db_host);
 define('DB_USER',$db_user);
 define('DB_PASS',$db_password);
