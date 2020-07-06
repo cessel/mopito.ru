@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PhpIncludePathManager">
+    <include_path>
+      <path value="K:/openserver/OSPanel/domains/studybitrix.loc/bitrix" />
+      <path value="K:/openserver/OSPanel/domains/beaverknife.loc/wp-includes" />
+      <path value="K:/openserver/OSPanel/domains/beaverknife.loc/wp-admin" />
+    </include_path>
+  </component>
+</project>

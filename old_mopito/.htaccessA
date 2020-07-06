@@ -1,0 +1,80 @@
+AddDefaultCharset UTF-8
+
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+php_flag log_errors on
+php_flag ignore_repeated_errors off
+php_flag ignore_repeated_source off
+php_flag report_memleaks on
+php_flag track_errors on
+php_value docref_root 0
+php_value docref_ext 0
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{ENV:HTTPS} !on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^.*$ index.php [NC,L]
+ErrorDocument 404 /404/
+</IfModule>
+
+#
+## убираем расширение пхп
+#
+#RewriteEngine On
+#RewriteBase /
+#RewriteRule ^(.*)/index\.php$ /$1/ [R=301]
+#RewriteRule ^(.*)/(.*)/(.*)/product$ product/ [QSA]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)\.php$ $1 [R=301,L]
+#
+#<FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+# Order Allow,Deny
+# Deny from all
+# </FilesMatch>
+#
+#<FilesMatch "functions.php$">
+# Order Allow,Deny
+# Deny from all
+# </FilesMatch>
+#
+#
+# <FilesMatch ".(pl|php|cgi|spl|scgi|fcgi)$">
+#Header unset Cache-Control
+#</FilesMatch>
+#
+#Options -Indexes
+#
+#RewriteEngine on
+#ErrorDocument 404 /theme/404.php
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP:X-Forwarded-SSL} !on
+#RewriteCond %{HTTP_HOST} ^mopito\.ru$ [OR]
+#RewriteCond %{HTTP_HOST} ^www\.mopito\.ru$
+#RewriteRule ^/?$ "https\:\/\/mopito\.ru\/" [R=301,L]
+
+#RewriteEngine On
+#
+#RewriteCond %{ENV:HTTPS} !on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP:X-Forwarded-SSL} !on
+#RewriteCond %{HTTP_HOST} ^mopito\.ru$ [OR]
+#RewriteCond %{HTTP_HOST} ^www\.mopito\.ru$
+#RewriteRule ^/?$ "https\:\/\/mopito\.ru\/" [R=301,L]
+
+Redirect 301 /msk/alkogolnie/pivo_sidr_medovuha_optom/ https://mopito.ru/msk/alkogolnie/
+Redirect 301 /msk/alkogolnie/vodka_konyak_vino_shampanskoe_optom/ https://mopito.ru/msk/alkogolnie/
+Redirect 301 /msk/produkty_pitaniya/myaso_myasnaya_produkciya_optom/ https://mopito.ru/msk/produkty_pitaniya/myaso_optom/
+Redirect 301 /msk/bezalkogolnie/soki_voda_kvas_limonad_optom/ https://mopito.ru/msk/bezalkogolnie/
+
+Redirect 301 /spb/alkogolnie/pivo_sidr_medovuha_optom/ https://mopito.ru/spb/alkogolnie/
+Redirect 301 /spb/alkogolnie/vodka_konyak_vino_shampanskoe_optom/ https://mopito.ru/spb/alkogolnie/
+Redirect 301 /spb/produkty_pitaniya/myaso_myasnaya_produkciya_optom/ https://mopito.ru/spb/produkty_pitaniya/myaso_optom/
+Redirect 301 /spb/bezalkogolnie/soki_voda_kvas_limonad_optom/ https://mopito.ru/spb/bezalkogolnie/

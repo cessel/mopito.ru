@@ -1,0 +1,116 @@
+AddDefaultCharset UTF-8
+
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+php_flag log_errors on
+php_flag ignore_repeated_errors off
+php_flag ignore_repeated_source off
+php_flag report_memleaks on
+php_flag track_errors on
+php_value docref_root 0
+php_value docref_ext 0
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+RewriteCond %{ENV:HTTPS} !on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^.*$ index.php [NC,L]
+ErrorDocument 404 /404/
+</IfModule>
+
+#
+## убираем расширение пхп
+#
+#RewriteEngine On
+#RewriteBase /
+#RewriteRule ^(.*)/index\.php$ /$1/ [R=301]
+#RewriteRule ^(.*)/(.*)/(.*)/product$ product/ [QSA]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)\.php$ $1 [R=301,L]
+#
+#<FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+# Order Allow,Deny
+# Deny from all
+# </FilesMatch>
+#
+#<FilesMatch "functions.php$">
+# Order Allow,Deny
+# Deny from all
+# </FilesMatch>
+#
+#
+# <FilesMatch ".(pl|php|cgi|spl|scgi|fcgi)$">
+#Header unset Cache-Control
+#</FilesMatch>
+#
+#Options -Indexes
+#
+#RewriteEngine on
+#ErrorDocument 404 /theme/404.php
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP:X-Forwarded-SSL} !on
+#RewriteCond %{HTTP_HOST} ^mopito\.ru$ [OR]
+#RewriteCond %{HTTP_HOST} ^www\.mopito\.ru$
+#RewriteRule ^/?$ "https\:\/\/mopito\.ru\/" [R=301,L]
+
+#RewriteEngine On
+#
+#RewriteCond %{ENV:HTTPS} !on
+#RewriteRule ^(.*)$ https://%{HTTP_HOST}/%{REQUEST_URI} [L,R=301]
+#RewriteCond %{HTTPS} off
+#RewriteCond %{HTTP:X-Forwarded-SSL} !on
+#RewriteCond %{HTTP_HOST} ^mopito\.ru$ [OR]
+#RewriteCond %{HTTP_HOST} ^www\.mopito\.ru$
+#RewriteRule ^/?$ "https\:\/\/mopito\.ru\/" [R=301,L]
+#
+#Redirect 301 /kofe-chaj/chaj-optom/ https://mopito.ru/bakaleya/chaj-optom/
+#Redirect 301 /kofe-chaj/ https://mopito.ru/bakaleya/kofe-optom/
+#Redirect 301 /kofe-chaj/kofe-optom/ https://mopito.ru/bakaleya/kofe-optom/
+#Redirect 301 /produkty-pitaniya/myaso-optom/ https://mopito.ru/myaso-optom/
+#Redirect 301 /produkty-pitaniya/ryba-optom/ https://mopito.ru/rybnaya-produkciya/ryba-optom/
+#Redirect 301 /bezalkogolnie/soki-optom/ https://mopito.ru/bezalkogolnie/soki-voda-mors-optom/
+#Redirect 301 /bezalkogolnie/voda-optom/ https://mopito.ru/bezalkogolnie/soki-voda-mors-optom/
+#Redirect 301 /bezalkogolnie/limonad-optom/ https://mopito.ru/bezalkogolnie/kvas-limonad-optom/
+#Redirect 301 /bezalkogolnie/kvas-optom/ https://mopito.ru/bezalkogolnie/kvas-limonad-optom/
+#Redirect 301 /oborudovanie/kofemashiny/ https://mopito.ru/bakaleya/kofe-optom/
+#Redirect 301 /oborudovanie/oborudovanie-dlya-piva/ https://mopito.ru/alkogolnie/pivo-optom/
+#Redirect 301 /oborudovanie/ https://mopito.ru/alkogolnie/pivo-optom/
+#Redirect 301 /oborudovanie/xolodilnoe-oborudovanie/ https://mopito.ru/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /oborudovanie/dlya-fastfudov-i-ulichnoe/ https://mopito.ru/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /oborudovanie/torgovoe-oborudovanie/ https://mopito.ru/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /uslugi/otdelka-i-montazh/ https://mopito.ru/alkogolnie/pivo-optom/
+#Redirect 301 /catering/ https://mopito.ru/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /catering/vyezdnoe-obsluzhivanie/ https://mopito.ru/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /catering/bankety/ https://mopito.ru/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /catering/organizaciya-prazdnikov/ https://mopito.ru/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /uslugi/ https://mopito.ru/alkogolnie/pivo-optom/
+#Redirect 301 /uslugi/servis/ https://mopito.ru/alkogolnie/pivo-optom/
+#
+#Redirect 301 /spb/kofe-chaj/chaj-optom/ https://mopito.ru/spb/bakaleya/chaj-optom/
+#Redirect 301 /spb/kofe-chaj/ https://mopito.ru/spb/bakaleya/kofe-optom/
+#Redirect 301 /spb/kofe-chaj/kofe-optom/ https://mopito.ru/spb/bakaleya/kofe-optom/
+#Redirect 301 /spb/produkty-pitaniya/myaso-optom/ https://mopito.ru/spb/myaso-optom/
+#Redirect 301 /spb/produkty-pitaniya/ryba-optom/ https://mopito.ru/spb/rybnaya-produkciya/ryba-optom/
+#Redirect 301 /spb/bezalkogolnie/soki-optom/ https://mopito.ru/spb/bezalkogolnie/soki-voda-mors-optom/
+#Redirect 301 /spb/bezalkogolnie/voda-optom/ https://mopito.ru/spb/bezalkogolnie/soki-voda-mors-optom/
+#Redirect 301 /spb/bezalkogolnie/limonad-optom/ https://mopito.ru/spb/bezalkogolnie/kvas-limonad-optom/
+#Redirect 301 /spb/bezalkogolnie/kvas-optom/ https://mopito.ru/spb/bezalkogolnie/kvas-limonad-optom/
+#Redirect 301 /spb/oborudovanie/kofemashiny/ https://mopito.ru/spb/bakaleya/kofe-optom/
+#Redirect 301 /spb/oborudovanie/oborudovanie-dlya-piva/ https://mopito.ru/spb/alkogolnie/pivo-optom/
+#Redirect 301 /spb/oborudovanie/ https://mopito.ru/spb/alkogolnie/pivo-optom/
+#Redirect 301 /spb/oborudovanie/xolodilnoe-oborudovanie/ https://mopito.ru/spb/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /spb/oborudovanie/dlya-fastfudov-i-ulichnoe/ https://mopito.ru/spb/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /spb/oborudovanie/torgovoe-oborudovanie/ https://mopito.ru/spb/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /spb/uslugi/otdelka-i-montazh/ https://mopito.ru/spb/alkogolnie/pivo-optom/
+#Redirect 301 /spb/catering/ https://mopito.ru/spb/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /spb/catering/vyezdnoe-obsluzhivanie/ https://mopito.ru/spb/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /spb/catering/bankety/ https://mopito.ru/spb/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /spb/catering/organizaciya-prazdnikov/ https://mopito.ru/spb/myaso-optom/oborudovanie-dlya-gotovki/
+#Redirect 301 /spb/uslugi/ https://mopito.ru/spb/alkogolnie/pivo-optom/
+#Redirect 301 /spb/uslugi/servis/ https://mopito.ru/spb/alkogolnie/pivo-optom/

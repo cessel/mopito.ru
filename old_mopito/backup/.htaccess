@@ -1,0 +1,29 @@
+AddDefaultCharset off
+
+
+# убираем расширение пхп
+
+RewriteEngine On
+RewriteBase /
+RewriteRule ^(.*)/index\.php$ /$1/ [R=301]
+RewriteRule ^(.*)/(.*)/(.*)/product$ product/ [QSA]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)\.php$ $1 [R=301,L] 
+
+<FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+ Order Allow,Deny
+ Deny from all
+ </FilesMatch>
+ 
+<FilesMatch "functions.php$">
+ Order Allow,Deny
+ Deny from all
+ </FilesMatch>
+
+ 
+ <FilesMatch ".(pl|php|cgi|spl|scgi|fcgi)$">
+Header unset Cache-Control
+</FilesMatch>
+
+Options -Indexes

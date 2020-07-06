@@ -1,0 +1,2 @@
+User-agent: *
+Disallow: /theme/help/Disallow: /theme/regpay/Disallow: /import/Disallow: /backup/Disallow: /cgi-bin/Disallow: /regpay/Disallow: /theme/seo/Host: https://mopito.ruSitemap: https://mopito.ru/sitemap.xml

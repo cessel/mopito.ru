@@ -1,0 +1,54 @@
+AddDefaultCharset UTF-8
+
+
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+php_flag log_errors on
+php_flag ignore_repeated_errors off
+php_flag ignore_repeated_source off
+php_flag report_memleaks on
+php_flag track_errors on
+php_value docref_root 0
+php_value docref_ext 0
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{SCRIPT_FILENAME} !-f
+RewriteRule ^.*$ index.php [NC,L]
+ErrorDocument 404 /404/
+</IfModule>
+
+RewriteCond %{HTTP_HOST} ^www\.(.*)$
+RewriteRule ^(.*)$ https://%1/$1 [L,R=301] 
+
+#
+## убираем расширение пхп
+#
+#RewriteEngine On
+#RewriteBase /
+#RewriteRule ^(.*)/index\.php$ /$1/ [R=301]
+#RewriteRule ^(.*)/(.*)/(.*)/product$ product/ [QSA]
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)\.php$ $1 [R=301,L]
+#
+#<FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh)$">
+# Order Allow,Deny
+# Deny from all
+# </FilesMatch>
+#
+#<FilesMatch "functions.php$">
+# Order Allow,Deny
+# Deny from all
+# </FilesMatch>
+#
+#
+# <FilesMatch ".(pl|php|cgi|spl|scgi|fcgi)$">
+#Header unset Cache-Control
+#</FilesMatch>
+#
+#Options -Indexes
+#
+#RewriteEngine on
+#ErrorDocument 404 /theme/404.php

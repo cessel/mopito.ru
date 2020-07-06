@@ -1,0 +1,13 @@
+# убираем расширение пхп	
+RewriteEngine on			
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+<FilesMatch ".(htaccess|htpasswd|ini|phps|fla|psd|log|sh|php)$">
+Order Deny,Allow
+#Deny from all
+#Allow from 88.135.80.170
+</FilesMatch>
+
+Options -Indexes
