@@ -21,6 +21,9 @@
           <mappings>
             <mapping deploy="/mopito.cessel.ru/public_html" local="$PROJECT_DIR$" web="/" />
           </mappings>
+          <excludedPaths>
+            <excludedPath local="true" path="$PROJECT_DIR$/new_theme/node_modules" />
+          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="Stonefactory">

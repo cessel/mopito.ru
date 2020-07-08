@@ -16,13 +16,8 @@ global $page;
 	<meta name="description" content="<?=$page['meta']['description']; ?>">
 	<link rel="canonical" href="<?=$page['meta']['canonical']; ?>">
 	<link rel="icon" href="https://mopito.ru/favicon.png" type="image/png">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
 	<link rel="stylesheet" href="<? the_theme_url(); ?>/css/styles.css">
 	<style>header.main .navbar-brand, header.main .login-register {margin-top: 0px!important;}</style>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-migrate/1.4.1/jquery-migrate.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.2.0/js.cookie.min.js"></script>
-	
 </head>
 <body class="wide" data-pagetype=''>
 <a class="" href="#" id="back-to-top" title="Вверх">↑</a>
