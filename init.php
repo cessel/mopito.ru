@@ -6,10 +6,6 @@
  * Time: 12:37
  */
 
-
-if(mb_substr($_SERVER['REQUEST_URI'],'-1',1) != '/'){
-	header('Location: '.$_SERVER['REQUEST_URI'].'/',true,301);
-}
 //if (substr($_SERVER['HTTP_HOST'], 0, 4) == 'www.') {
 //	$host = str_replace('www.','',$_SERVER['HTTP_HOST']);
 //	$https = ($_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
@@ -18,9 +14,11 @@ if(mb_substr($_SERVER['REQUEST_URI'],'-1',1) != '/'){
 //	header('Location: '.$destination,true,301);
 //}
 
+require( dirname( __FILE__ ) . '/config.php' );
 require( dirname( __FILE__ ) . '/functions.php' );
+require( dirname( __FILE__ ) . '/routing.php' );
 redirect_before();
-require( 'routing.php' );
+
 
 $request_uri = get_request_uri();
 if(empty($request_uri[0]))
