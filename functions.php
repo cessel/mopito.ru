@@ -1,5 +1,5 @@
 <?php
-
+require( dirname( __FILE__ ) . '/config.php' );
 
 
 function get_request_uri() {
