@@ -183,3 +183,38 @@ function is_static_page_exist($request_uri)
 	    	return false;
 	    }
     }
+
+redirect_before();
+
+
+$request_uri = get_request_uri();
+if(empty($request_uri[0]))
+{
+	require( 'settings.php' );
+	require( get_theme_uri().'/index.php' );
+}
+else if($request_uri[0] == 'index.php' || $request_uri[0] == 'index' )
+{
+	header('Location: /',true,301);
+}
+else if($data_type = route_exist($request_uri))
+{
+	$page = get_page_data();
+	require( get_theme_uri().'/'.$data_type.'.php' );
+}
+else if($page_url = is_static_page_exist($request_uri))
+{
+	require( $page_url );
+}
+else
+{
+	require( dirname( __FILE__ ) .'/404/index.php' );
+}
+
+/*
+else if(file_exists($dir))
+	{
+
+		require( $dir .'/index.php' );
+	}
+*/
