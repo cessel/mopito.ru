@@ -83,6 +83,7 @@ gulp.task('scripts',function()
             'lib/bootstrap/dist/js/bootstrap.min.js',
             'lib/owl.carousel/dist/owl.carousel.min.js',
             'lib/jquery.scrollTo/jquery.scrollTo.min.js',
+            'lib/mopito_libs/front_27.js',
             'node_modules/js-cookie/src/js.cookie.js'
         ])
         .pipe(concat('libs.min.js'))
