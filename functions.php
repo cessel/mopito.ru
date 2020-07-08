@@ -801,3 +801,24 @@ function get_conditions($request_uri,$filter = '0')
 	    return $where;
     }
 
+function mopito_head(){
+	$styles[] = '<link rel="stylesheet" href="'.the_theme_url(false).'/css/libs/libs.min.css">';
+	$styles[] = '<link rel="stylesheet" href="'.the_theme_url(false).'/css/styles.css">';
+	$styles[] = '<style>header.main .navbar-brand, header.main .login-register {margin-top: 0px!important;}</style>';
+
+	foreach ( $styles as $style ) {
+        echo $style;
+	}
+
+	$scripts[] = '';
+
+	foreach ( $scripts as $script ) {
+		echo $script;
+	}
+
+	$functions[] = '';
+	foreach ( $functions as $function ) {
+		call_user_func($function);
+	}
+
+}
