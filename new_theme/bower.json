@@ -1,0 +1,34 @@
+{
+  "name": "newproject.loc",
+  "authors": [
+    "cessel <cessel@yandex.ru>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "jquery": "https://github.com/jquery/jquery.git#^3.2.1",
+    "owl.carousel": "*",
+    "bootstrap": "*",
+    "jquery-migrate": "*"
+  },
+  "resolutions": {
+    "bootstrap": "*"
+  },
+  "dependencies": {
+    "animate.css": "*",
+    "hover": "*",
+    "font-awesome": "fontawesome#^4.7.0",
+    "jquery.scrollTo": "*",
+    "scrollreveal": "*",
+    "popper.js": "^1.15.0"
+  }
+}
