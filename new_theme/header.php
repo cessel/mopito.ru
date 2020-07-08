@@ -16,8 +16,7 @@ global $page;
 	<meta name="description" content="<?=$page['meta']['description']; ?>">
 	<link rel="canonical" href="<?=$page['meta']['canonical']; ?>">
 	<link rel="icon" href="https://mopito.ru/favicon.png" type="image/png">
-	<link rel="stylesheet" href="<? the_theme_url(); ?>/css/styles.css">
-	<style>header.main .navbar-brand, header.main .login-register {margin-top: 0px!important;}</style>
+    <? mopito_head();?>
 </head>
 <body class="wide" data-pagetype=''>
 <a class="" href="#" id="back-to-top" title="Вверх">↑</a>
