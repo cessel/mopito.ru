@@ -256,30 +256,33 @@ function get_query()
 	    parse_str($query_str,$query_array);
 		return $query_array;
     }
-
+function get_theme_dir_name(){
+	$theme_name = 'new_theme';
+	return $theme_name;
+}
 function get_header()
     {
-        include_once $_SERVER["DOCUMENT_ROOT"].'/theme/header.php';
+        include_once $_SERVER["DOCUMENT_ROOT"].'/'.get_theme_dir_name().'/header.php';
     }
 function get_footer()
     {
-        include_once $_SERVER["DOCUMENT_ROOT"].'/theme/footer.php';
+        include_once $_SERVER["DOCUMENT_ROOT"].'/'.get_theme_dir_name().'/footer.php';
     }
 function the_theme_url($echo = true)
 	{
 		if($echo)
 			{
-				echo '/theme';
+				echo '/'.get_theme_dir_name().'';
 			}
 		else
 			{
-				return '/theme';
+				return '/'.get_theme_dir_name().'';
 			}
 
 	}
 function get_theme_uri()
 	{
-		return $_SERVER["DOCUMENT_ROOT"].'/theme';
+		return $_SERVER["DOCUMENT_ROOT"].'/'.get_theme_dir_name().'';
 	}
 function get_title()
     {
