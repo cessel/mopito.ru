@@ -2,13 +2,43 @@
 require( dirname( __FILE__ ) . '/config.php' );
 
 
+function get_all_regions(){
+	$sql = "SELECT `alco_12` FROM `alco_base_new` WHERE 1 GROUP BY `alco_12`";
+	$result = sql($sql);
+	$regions = [];
+	while($row = mysqli_fetch_row($result)){
+		$regions[] = $row[0];
+	}
+	return $regions;
+}
+function get_current_region(){
+
+}
+
+function extract_current_page_data_from_url(){
+	$extracted_data = [];
+	$domain = $_SERVER['SERVER_NAME'];
+	$request = $_SERVER['REQUEST_URI'];
+
+	$domain_data = explode('.',$domain);
+	$regions = get_all_regions();
+	if($domain_data[0] != SITE_DOMAIN && in_array($domain_data[0],$regions)){
+		$extracted_data['region'] = $domain_data[0];
+	}
+	else{
+		$extracted_data['region'] = 'msk';
+	}
+
+	echo '<pre>'.print_r($extracted_data,true).'</pre>';
+	return $extracted_data;
+}
+
 function get_request_uri() {
 	$request_uri = explode( '/', $_SERVER['REQUEST_URI'] );
 	$request_uri = array_values( array_filter( $request_uri ) );
 	if ( ! empty( $request_uri ) && $request_uri[0] != 'msk' && $request_uri[0] != 'spb' ) {
 		array_unshift( $request_uri, 'msk' );
 	}
-
 	return $request_uri;
 }
 
@@ -158,7 +188,6 @@ function the_theme_url( $echo = true ) {
 	} else {
 		return '/' . get_theme_dir_name() . '';
 	}
-
 }
 
 function get_theme_uri() {
