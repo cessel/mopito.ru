@@ -6,13 +6,23 @@
  * Time: 14:21
  */
 
-@header('Content-Type: text/html; charset=utf-8');
+
+/* Убираем www и перенаправляем на https */
+//if (substr($_SERVER['HTTP_HOST'], 0, 4) == 'www.') {
+//	$host = str_replace('www.','',$_SERVER['HTTP_HOST']);
+//	$https = ($_SERVER['HTTPS'] == 'on') ? 'https://' : 'http://';
+//
+//	$destination = $https.$host.$_SERVER['REQUEST_URI'];
+//	header('Location: '.$destination,true,301);
+//}
 
 
+/* Добавляем слеш "/" вконце */
 if(mb_substr($_SERVER['REQUEST_URI'],'-1',1) != '/'){
 	header('Location: '.$_SERVER['REQUEST_URI'].'/',true,301);
 }
 
+/* Все редирректы для SEO */
 function redirect_before(){
 	$redirect_array['/kofe-chaj/chaj-optom/'] = 'https://mopito.ru/bakaleya/chaj-optom/';
 	$redirect_array['/kofe-chaj/'] = 'https://mopito.ru/bakaleya/kofe-optom/';
