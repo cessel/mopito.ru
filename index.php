@@ -1,7 +1,3 @@
 <?php
-require( dirname( __FILE__ ) . '/init.php' );
-
-/*
-$query = get_query();
-echo '<pre>'.print_r($query,true)."</pre>";
-*/
+@header('Content-Type: text/html; charset=utf-8');
+require( dirname( __FILE__ ) . '/core/Init.php' );
