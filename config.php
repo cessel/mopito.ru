@@ -20,3 +20,4 @@ define('DB_USER',$db_user);
 define('DB_PASS',$db_password);
 define('DB_NAME',$database);
 define('TABLE_NAME','alco_base_new');
+define('SITE_DOMAIN','mopito');
