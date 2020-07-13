@@ -5,7 +5,8 @@
  * Date: 29.07.2019
  * Time: 12:21
  */
+global $Theme;
 ?>
-<?php mopito_footer(); ?>
+<?php $Theme->mopito_footer(); ?>
 </body>
 </html>

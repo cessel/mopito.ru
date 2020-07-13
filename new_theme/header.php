@@ -7,6 +7,7 @@
  */
 
 global $page;
+global $Theme;
 ?><!DOCTYPE html>
 <html class="sb-init" lang="ru"><head>
 	<meta name="twitter:widgets:csp" content="on">
@@ -16,7 +17,7 @@ global $page;
 	<meta name="description" content="<?=$page['meta']['description']; ?>">
 	<link rel="canonical" href="<?=$page['meta']['canonical']; ?>">
 	<link rel="icon" href="https://mopito.ru/favicon.png" type="image/png">
-    <? mopito_head();?>
+    <? $Theme->mopito_head();?>
 </head>
 <body class="wide" data-pagetype=''>
 <a class="" href="#" id="back-to-top" title="Вверх">↑</a>
